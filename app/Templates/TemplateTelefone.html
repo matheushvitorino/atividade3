@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h1> Adicionar telefone ao Usuario: {{usuario.nome}}</h1>
+    <form class="form"method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Adicionar">
+    </form>
+    <div class="mt-2">
+        <a class="btn btn-primary"href="{% url 'lista_usuarios' %}">Voltar a Lista</a>
+        <a class="btn btn-primary"href="{% url 'lista_telefones' usuario.pk%}">Lista de telefones do Usuario: {{usuario.nome}}</a>
+    </div>
+
+{% endblock %}

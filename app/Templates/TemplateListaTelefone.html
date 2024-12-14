@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{%block content%}
+    
+
+<ul class="list-group">
+    <a href="{% url 'formulario_telefone' usuario.pk %}">Adicionar telefone</a>
+    {% for telefone in telefones %}
+    
+        <li class="list-group-item">{{ telefone.numero }} 
+            <a href="{% url 'deletar_telefone' telefone.pk %}">Deletar</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">Nenhum telefone disponivel.</li>
+        <a href="{% url 'lista_usuarios' %}">Voltar a lista</a>
+    {% endfor %}
+    </ul>
+{%endblock%}

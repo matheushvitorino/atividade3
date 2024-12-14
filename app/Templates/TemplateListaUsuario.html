@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%block content%}
+<a href="{% url 'formulario_usuario' %}">Adicionar novo Usuario</a>
+<ul class="list-group">
+    {% for usuario in usuarios %}
+        <li class="list-group-item">{{ usuario.nome }} 
+            <a href="{% url 'deletar_usuario' usuario.pk %}">Deletar</a>
+            <a href="{% url 'editar_usuarios' usuario.pk %}">Editar</a>
+            <a href="{% url 'lista_telefones' usuario.pk%}">Telefones</a>
+            <a href="{% url 'formulario_telefone' usuario.pk %}">Adicionar telefone</a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">Lista vazia.</li>
+    {% endfor %}
+    </ul>
+{%endblock%}

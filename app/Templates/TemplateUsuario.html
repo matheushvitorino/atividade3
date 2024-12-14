@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <h1> Cadastrar Usuarios</h1>
+    <form class="form"method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Cadastrar">
+    </form>
+    <a href="{% url 'lista_usuarios'%}">Voltar a Lista</a>
+{% endblock %}
